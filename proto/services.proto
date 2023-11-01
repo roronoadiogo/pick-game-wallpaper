@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "app_info.proto";
+
+message EmptyRequest{};
+
+service AppInfoService {
+    rpc FindByProcess (AppInfoRequest) returns (AppInfo);
+}
+
+message AppInfoRequest {
+    uint32 app_id = 1;
+    ProviderWallpaper provider = 2;
+}
