@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message AppInfo {
+    uint32 id = 1;
+    string name = 2;
+    repeated AssetWallpaper wallpapers = 3;
+    ProviderWallpaper provider = 4;
+}    
+
+message AssetWallpaper {
+    uint32 id = 1;
+    uint32 width = 2;
+    uint32 height = 3;
+}
+
+enum ProviderWallpaper {
+    UNSPECIFIED = 0;
+    LOCAL = 1;
+    WEB = 2;
+}
