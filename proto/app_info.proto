@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+package pickwallpaper.proto;
+option go_package = "github.com/roronoadiogo/pick-game-wallpaper/app/core/model";
+
 message AppInfo {
     uint32 id = 1;
     string name = 2;

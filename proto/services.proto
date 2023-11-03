@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "app_info.proto";
+option go_package = "github.com/roronoadiogo/pick-game-wallpaper/app/core/model";
 
 message EmptyRequest{};
 
