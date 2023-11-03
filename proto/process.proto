@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message Process {
+
+    string name = 1;
+    uint32 pid = 2;
+    string type = 3;
+    string name_session = 4;
+    uint64 use_memory = 5;
+    string status = 6;
+    string name_user = 7;
+    uint64 time_cpu = 8;
+    string windown_name = 9;
+    
+}
+
