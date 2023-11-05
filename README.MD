@@ -6,6 +6,8 @@ This project is to configure the wallpaper for a second screen based on the game
 
 - GoLang 1.20
 - GoDotEnv
+- Bazel 6.4.0
+- ProtoBuffer
 
 This list does not complete yet, will increase with the time.
 
