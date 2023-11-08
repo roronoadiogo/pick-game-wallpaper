@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	loggerLevelFile    = zap.InfoLevel
-	loggerLevelConsole = zap.ErrorLevel
+	loggerLevelFile    = zap.ErrorLevel
+	loggerLevelConsole = zap.FatalLevel
 )
 
 var logger *zap.Logger
