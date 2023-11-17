@@ -1,9 +1,13 @@
 package utils
 
 import (
-	"os"
+	"encoding/csv"
+	"fmt"
+	"log"
 	"os/exec"
+	"strings"
 
+	"github.com/jszwec/csvutil"
 	"github.com/roronoadiogo/pick-game-wallpaper/app/config"
 )
 
@@ -19,20 +23,37 @@ func FindProcessGame() {
 	exportCsvProcess(result)
 }
 
-func exportCsvProcess(taskCsv []byte) (*os.File, error) {
-	filename := "data_test.csv"
-	file, err := os.Create(filename)
+func exportCsvProcess(taskCsv []byte) {
+	//var process []Process
 
+	csvReader := csv.NewReader(strings.
+		NewReader(`"dwm.exe","1632","Console","1","83,944 K","Running","N/A","0:00:49","DWM Notification Window"`))
+
+	userHeader, err := csvutil.Header(Process{}, "csv")
 	if err != nil {
-		logger.Error("Error creating file:", err)
+		log.Fatal(err)
 	}
 
-	defer file.Close()
-
-	_, err = file.Write(taskCsv)
+	dec, err := csvutil.NewDecoder(csvReader, userHeader...)
 	if err != nil {
-		logger.Error("Error writing to the file:", err)
+		log.Fatal(err)
 	}
 
-	return file, nil
+	var proc []Process
+	for {
+
+		var p Process
+
+		if err := dec.Decode(&p); err != nil {
+			break
+		}
+
+		proc = append(proc, p)
+
+	}
+
+	for _, p := range proc {
+		fmt.Printf("%+v\n", p)
+	}
+
 }
